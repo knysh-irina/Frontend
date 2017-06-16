@@ -8,6 +8,7 @@ var calc =  function () {
     this.sum = function (a, b) {
         this.i = a + b ;
         return this;
+
     };
 
     this.mult = function(a) {
@@ -18,6 +19,7 @@ var calc =  function () {
     };
 
     this.result = function () {
+
         console.log(this.i);
         return this;
     }
@@ -45,8 +47,11 @@ function logDecorator(func) {
 
 
 ingCalc.__proto__ = calc;
+
 var Calc = new calc();
 Calc.sum(2,4).result();
 Calc.mult(2)(4);
 logDecorator(Calc.sum(2,4));
 console.log(log);
+
+

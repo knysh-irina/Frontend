@@ -8,14 +8,12 @@ var calc = {
         this.i = a + b ;
         return this;
     },
-    mult: function (a, b) {
-
-        function m (a,b) {
-           var c = a*b;
-           return c;
+    mult: function (a) {
+        var first_var = a;
+        return function (b) {
+            this.i = first_var*b;
+            console.log(this.i);
         }
-        this.i = m(a,b);
-        return this;
     },
     result: function () {
         console.log(this.i);
@@ -35,4 +33,4 @@ var ingCalc = {
 ingCalc.__proto__ = calc;
 ingCalc.sum(2,4).result();
 ingCalc.log(2,4).result();
-ingCalc.mult(2,4).result();
+ingCalc.mult(2)(4);

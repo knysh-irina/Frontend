@@ -1,11 +1,23 @@
 /**
  * Created by Users on 30.06.2017.
  */
+/*
 $(document).ready(function(){
     $("#flip").click(function(){
         $("#list").slideToggle("slow");
     });
 });
+*/
+document.getElementById("flip").addEventListener("click", showMenu);
+
+function showMenu() {
+    message = document.getElementById("list");
+    if (message.style.display == "block"){
+        message.style.display = "none";
+    } else {
+        message.style.display = "block";
+    }
+}
 
 document.getElementById("flip").addEventListener("click", showBox);
 

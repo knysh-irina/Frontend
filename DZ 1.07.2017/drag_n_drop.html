@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <style>
+        #div1 {
+            width: 100%;
+            height: 800px;
+            padding: 10px;
+            border: 1px solid #aaaaaa;
+        }
+
+        img {
+            width: 336px;
+            height: 69px;
+            position: absolute;
+            top: 100px;
+            left: 200px;
+        }
+    </style>
+    <script>
+        var myX = '';
+        var myY = '';
+        var whichArt = '';
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+
+        function drag(ev) {
+            ev.dataTransfer.setData("text", ev.target.id);
+            myX = ev.offsetX === undefined ? ev.layerX : ev.offsetX;
+            myY = ev.offsetY === undefined ? ev.layerY : ev.offsetY;
+
+        }
+
+        function drop(ev) {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("text");
+            el = document.getElementById(data);
+
+            el.style.top = ev.pageY - myY+ "px";
+            el.style.left = ev.pageX- myX + "px";
+            console.log(ev);
+
+        }
+    </script>
+</head>
+<body>
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+
+    <img id="drag1" src="img_logo.gif" draggable="true" ondragstart="drag(event)">
+</div>
+
+
+
+
+
+</body>
+</html>
